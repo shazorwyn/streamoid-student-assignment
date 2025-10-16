@@ -1,0 +1,101 @@
+sku,name,brand,color,size,mrp,price,quantity
+TSHIRT-001,Classic Cotton T-Shirt,StreamThreads,Red,M,799,499,20
+TSHIRT-002,Classic Cotton T-Shirt,StreamThreads,Blue,L,799,799,15
+POLO-003,Heritage Polo,StreamThreads,Green,XL,1299,999,8
+JEANS-004,Slim Fit Jeans,DenimWorks,Blue,32,1999,1599,15
+JEANS-005,Slim Fit Jeans,DenimWorks,Black,30,1999,1499,18
+DRESS-006,Floral Summer Dress,BloomWear,Pink,S,2499,2199,10
+DRESS-007,Floral Summer Dress,BloomWear,Yellow,M,2499,1999,7
+SHOE-008,Everyday Sneakers,StrideLab,White,UK7,2999,2499,25
+SHOE-009,Everyday Sneakers,StrideLab,Navy,UK8,2999,2499,19
+BAG-010,Canvas Tote Bag,CarryCo,Beige,OneSize,899,699,35
+BELT-011,Leather Belt,CarryCo,Brown,38,1199,899,40
+SAREE-012,Banarasi Silk Saree,Ethniq,Red,Free,6999,5999,5
+KURTA-013,Cotton Kurta,Ethniq,Blue,M,1599,1299,22
+JKT-014,Utility Jacket,UrbanEdge,Olive,L,3499,2999,6
+TSHIRT-015,Graphic Tee,UrbanEdge,Grey,S,899,699,30
+TSHIRT-016,Graphic Tee,UrbanEdge,White,XS,899,649,14
+SHIRT-017,Checked Casual Shirt,ButtonUp,Multi,M,1799,1399,16
+SHIRT-018,Plain Oxford Shirt,ButtonUp,Blue,L,1899,1499,12
+HOODIE-019,Cozy Hoodie,SnugWear,Charcoal,XL,2199,1799,11
+HOODIE-020,Cozy Hoodie,SnugWear,Cream,M,2199,1699,9
+TSHIRT-021,Classic Cotton T-Shirt,StreamThreads,Red,M,799,499,20
+TSHIRT-022,Classic Cotton T-Shirt,StreamThreads,Blue,L,799,799,15
+POLO-023,Heritage Polo,StreamThreads,Green,XL,1299,999,8
+JEANS-024,Slim Fit Jeans,DenimWorks,Blue,32,1999,1599,15
+JEANS-025,Slim Fit Jeans,DenimWorks,Black,30,1999,1499,18
+DRESS-026,Floral Summer Dress,BloomWear,Pink,S,2499,2199,10
+DRESS-027,Floral Summer Dress,BloomWear,Yellow,M,2499,1999,7
+SHOE-028,Everyday Sneakers,StrideLab,White,UK7,2999,2499,25
+SHOE-029,Everyday Sneakers,StrideLab,Navy,UK8,2999,2499,19
+BAG-030,Canvas Tote Bag,CarryCo,Beige,OneSize,899,699,35
+BELT-031,Leather Belt,CarryCo,Brown,38,1199,899,40
+SAREE-032,Banarasi Silk Saree,Ethniq,Red,Free,6999,5999,5
+KURTA-033,Cotton Kurta,Ethniq,Blue,M,1599,1299,22
+JKT-034,Utility Jacket,UrbanEdge,Olive,L,3499,2999,6
+TSHIRT-035,Graphic Tee,UrbanEdge,Grey,S,899,699,30
+TSHIRT-036,Graphic Tee,UrbanEdge,White,XS,899,649,14
+SHIRT-037,Checked Casual Shirt,ButtonUp,Multi,M,1799,1399,16
+SHIRT-038,Plain Oxford Shirt,ButtonUp,Blue,L,1899,1499,12
+HOODIE-039,Cozy Hoodie,SnugWear,Charcoal,XL,2199,1799,11
+HOODIE-040,Cozy Hoodie,SnugWear,Cream,M,2199,1699,9
+TSHIRT-041,Classic Cotton T-Shirt,StreamThreads,Red,M,799,499,20
+TSHIRT-042,Classic Cotton T-Shirt,StreamThreads,Blue,L,799,799,15
+POLO-043,Heritage Polo,StreamThreads,Green,XL,1299,999,8
+JEANS-044,Slim Fit Jeans,DenimWorks,Blue,32,1999,1599,15
+JEANS-045,Slim Fit Jeans,DenimWorks,Black,30,1999,1499,18
+DRESS-046,Floral Summer Dress,BloomWear,Pink,S,2499,2199,10
+DRESS-047,Floral Summer Dress,BloomWear,Yellow,M,2499,1999,7
+SHOE-048,Everyday Sneakers,StrideLab,White,UK7,2999,2499,25
+SHOE-049,Everyday Sneakers,StrideLab,Navy,UK8,2999,2499,19
+BAG-050,Canvas Tote Bag,CarryCo,Beige,OneSize,899,699,35
+BELT-051,Leather Belt,CarryCo,Brown,38,1199,899,40
+SAREE-052,Banarasi Silk Saree,Ethniq,Red,Free,6999,5999,5
+KURTA-053,Cotton Kurta,Ethniq,Blue,M,1599,1299,22
+JKT-054,Utility Jacket,UrbanEdge,Olive,L,3499,2999,6
+TSHIRT-055,Graphic Tee,UrbanEdge,Grey,S,899,699,30
+TSHIRT-056,Graphic Tee,UrbanEdge,White,XS,899,649,14
+SHIRT-057,Checked Casual Shirt,ButtonUp,Multi,M,1799,1399,16
+SHIRT-058,Plain Oxford Shirt,ButtonUp,Blue,L,1899,1499,12
+HOODIE-059,Cozy Hoodie,SnugWear,Charcoal,XL,2199,1799,11
+HOODIE-060,Cozy Hoodie,SnugWear,Cream,M,2199,1699,9
+TSHIRT-061,Classic Cotton T-Shirt,StreamThreads,Red,M,799,499,20
+TSHIRT-062,Classic Cotton T-Shirt,StreamThreads,Blue,L,799,799,15
+POLO-063,Heritage Polo,StreamThreads,Green,XL,1299,999,8
+JEANS-064,Slim Fit Jeans,DenimWorks,Blue,32,1999,1599,15
+JEANS-065,Slim Fit Jeans,DenimWorks,Black,30,1999,1499,18
+DRESS-066,Floral Summer Dress,BloomWear,Pink,S,2499,2199,10
+DRESS-067,Floral Summer Dress,BloomWear,Yellow,M,2499,1999,7
+SHOE-068,Everyday Sneakers,StrideLab,White,UK7,2999,2499,25
+SHOE-069,Everyday Sneakers,StrideLab,Navy,UK8,2999,2499,19
+BAG-070,Canvas Tote Bag,CarryCo,Beige,OneSize,899,699,35
+BELT-071,Leather Belt,CarryCo,Brown,38,1199,899,40
+SAREE-072,Banarasi Silk Saree,Ethniq,Red,Free,6999,5999,5
+KURTA-073,Cotton Kurta,Ethniq,Blue,M,1599,1299,22
+JKT-074,Utility Jacket,UrbanEdge,Olive,L,3499,2999,6
+TSHIRT-075,Graphic Tee,UrbanEdge,Grey,S,899,699,30
+TSHIRT-076,Graphic Tee,UrbanEdge,White,XS,899,649,14
+SHIRT-077,Checked Casual Shirt,ButtonUp,Multi,M,1799,1399,16
+SHIRT-078,Plain Oxford Shirt,ButtonUp,Blue,L,1899,1499,12
+HOODIE-079,Cozy Hoodie,SnugWear,Charcoal,XL,2199,1799,11
+HOODIE-080,Cozy Hoodie,SnugWear,Cream,M,2199,1699,9
+TSHIRT-081,Classic Cotton T-Shirt,StreamThreads,Red,M,799,499,20
+TSHIRT-082,Classic Cotton T-Shirt,StreamThreads,Blue,L,799,799,15
+POLO-083,Heritage Polo,StreamThreads,Green,XL,1299,999,8
+JEANS-084,Slim Fit Jeans,DenimWorks,Blue,32,1999,1599,15
+JEANS-085,Slim Fit Jeans,DenimWorks,Black,30,1999,1499,18
+DRESS-086,Floral Summer Dress,BloomWear,Pink,S,2499,2199,10
+DRESS-087,Floral Summer Dress,BloomWear,Yellow,M,2499,1999,7
+SHOE-088,Everyday Sneakers,StrideLab,White,UK7,2999,2499,25
+SHOE-089,Everyday Sneakers,StrideLab,Navy,UK8,2999,2499,19
+BAG-090,Canvas Tote Bag,CarryCo,Beige,OneSize,899,699,35
+BELT-091,Leather Belt,CarryCo,Brown,38,1199,899,40
+SAREE-092,Banarasi Silk Saree,Ethniq,Red,Free,6999,5999,5
+KURTA-093,Cotton Kurta,Ethniq,Blue,M,1599,1299,22
+JKT-094,Utility Jacket,UrbanEdge,Olive,L,3499,2999,6
+TSHIRT-095,Graphic Tee,UrbanEdge,Grey,S,899,699,30
+TSHIRT-096,Graphic Tee,UrbanEdge,White,XS,899,649,14
+SHIRT-097,Checked Casual Shirt,ButtonUp,Multi,M,1799,1399,16
+SHIRT-098,Plain Oxford Shirt,ButtonUp,Blue,L,1899,1499,12
+HOODIE-099,Cozy Hoodie,SnugWear,Charcoal,XL,2199,2499,11
+TSHIRT-100,Classic Cotton T-Shirt,StreamThreads,Red,M,799,499,-5
