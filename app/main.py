@@ -1,10 +1,12 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine, Column, String, Integer
+
+from fastapi import UploadFile, File, Query, Depends, HTTPException, FastAPI
+from pydantic import BaseModel, Field
+from typing import Annotated
 
 # Database setup
-from sqlalchemy import create_engine, Column, String, Integer
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
 DATABASE_URL = "sqlite:///./streamoid.db"
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -59,3 +61,35 @@ class UploadSummary(BaseModel):
 
 # FastAPI app setup
 app = FastAPI()
+
+
+@app.post("/upload", response_model=UploadSummary)
+async def upload_products(file: UploadFile = File(...), db=Depends(get_db)):
+    if not file.filename.endswith('.csv'):
+        raise HTTPException(
+            status_code=400, detail="Invalid file type. Please upload a CSV file.")
+    file_content = await file.read()
+    summary = parse_and_store_csv(db, file_content)
+    return summary
+
+
+@app.get("/products", response_model=list[ProductBase])
+def get_products(db=Depends(get_db)):
+    products = db.query(Product).all()
+    return products
+
+
+class ProductFilter(BaseModel):
+    brand: str = Field(None, description="Filter by brand")
+    color: str = Field(None, description="Filter by color")
+    min_price: int = Field(None, ge=0, description="Minimum price")
+    max_price: int = Field(None, ge=0, description="Maximum price")
+
+
+@app.get("/products/search", response_model=list[ProductBase])
+def search_products(filter_query: Annotated[ProductFilter, Query()]):
+    return filter_query
+
+
+def parse_and_store_csv(db, file_content: bytes):
+    pass
