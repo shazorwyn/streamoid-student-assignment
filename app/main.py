@@ -87,9 +87,23 @@ class ProductFilter(BaseModel):
 
 
 @app.get("/products/search", response_model=list[ProductBase])
-def search_products(filter_query: Annotated[ProductFilter, Query()]):
-    return filter_query
+def search_products(filter_query: Annotated[ProductFilter, Query()], db=Depends(get_db)):
+    products = get_searched_products(filter_query)
+    return products
 
 
 def parse_and_store_csv(db, file_content: bytes):
     pass
+
+
+def get_searched_products(filter_query: ProductFilter, db):
+    query = db.query(Product)
+    if filter_query.brand:
+        query = query.filter(Product.brand == filter_query.brand)
+    if filter_query.color:
+        query = query.filter(Product.color == filter_query.color)
+    if filter_query.min_price is not None:
+        query = query.filter(Product.price >= filter_query.min_price)
+    if filter_query.max_price is not None:
+        query = query.filter(Product.price <= filter_query.max_price)
+    return query.all()
