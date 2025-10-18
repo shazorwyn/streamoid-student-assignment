@@ -16,7 +16,7 @@ class Product(Base):
     size = Column(String)
     mrp = Column(Integer, nullable=False)
     price = Column(Integer, nullable=False)
-    quantity = Column(Integer, nullable=False)
+    quantity = Column(Integer)
 
 
 class ProductBase(BaseModel):
@@ -27,7 +27,7 @@ class ProductBase(BaseModel):
     size: str = Field(None)
     mrp: int = Field(ge=0)
     price: int = Field(ge=0)
-    quantity: int = Field(ge=0)
+    quantity: int = Field(None, ge=0)
 
     @model_validator(mode='after')
     def price_less_than_mrp(self) -> 'ProductBase':
@@ -49,3 +49,4 @@ class ProductFilter(BaseModel):
 class UploadSummary(BaseModel):
     stored: int
     failed: list[dict]
+
