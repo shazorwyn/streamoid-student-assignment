@@ -13,13 +13,13 @@ A FastAPI backend service for uploading, validating, storing, and filtering prod
         - Avoid duplicate SKUs.
 2. Database Storage in SQLite.
 3. List Products
-    - Paginated retrieval of all products: /products.
+    - Paginated retrieval of all products: ```/products```.
 4. Search / Filter Products
-    - Filter by brand, color, or price range: /products/search.
+    - Filter by brand, color, or price range: ```/products/search```.
     - Supports partial string matching for brand and color.
     - Supports pagination.
 5. Clear Database ***(Only for testing)***
-    - Delete all products with confirmation: /products/clear?confirm=true.
+    - Delete all products with confirmation: ```/products/clear?confirm=true```.
 
 ## Tech Stack
 - Python 3.12.4
@@ -28,20 +28,6 @@ A FastAPI backend service for uploading, validating, storing, and filtering prod
 - SQLite
 - Pydantic
 
-## Project Structure
-
-```
-project/
-│
-├─ app/
-│  ├─ main.py          # FastAPI application with endpoints
-│  ├─ models.py        # SQLAlchemy & Pydantic models
-│  ├─ database.py      # Database setup and session
-│  └─ utils.py         # CSV parsing and search utility functions
-│
-├─ Pipfile
-├─ Pipfile.lock
-```
 ## Setup Instructions
 1. Clone the repository
 ```
