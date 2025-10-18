@@ -162,12 +162,12 @@ To run the Streamoid backend using Docker to avoid installing dependencies manua
 #### 1. Build Docker Image
 From the root of the repository:
 ```
-docker build -t streamoid-backend .
+docker build -t <image-name> .
 ```
 #### 2. Run Docker Container
 Run the container and map port 8000:
 ```
-docker run -d -p 8000:8000 --name streamoid streamoid-backend
+docker run -d -p 8000:8000 --name <container-name> <image-name>
 ```
 The API will now be accessible at: ```http://127.0.0.1:8000```
 Swagger UI: ```http://127.0.0.1:8000/docs```
@@ -176,11 +176,15 @@ Redoc: ```http://127.0.0.1:8000/redoc```
 #### 3. Stopping & Removing Container
 Stop the container:
 ```
-docker stop streamoid
+docker stop <container-name>
 ```
 Remove the container:
 ```
-docker rm streamoid
+docker rm <container-name>
+```
+Remove the image:
+```
+docker rmi <image-name>:<tag>
 ```
 ## Notes
 
