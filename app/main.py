@@ -6,7 +6,7 @@ from sqlalchemy import create_engine, Column, String, Integer
 
 import csv
 
-from fastapi import UploadFile, File, Depends, HTTPException, FastAPI
+from fastapi import Query, UploadFile, File, Depends, HTTPException, FastAPI
 from pydantic import BaseModel, Field, ValidationError, model_validator
 from typing import Annotated, Any, List, Dict, Optional
 
@@ -56,8 +56,6 @@ class ProductBase(BaseModel):
 
     @model_validator(mode='after')
     def price_less_than_mrp(self) -> 'ProductBase':
-        # Here, self refers to the model instance, so you can safely
-        # access self.price and self.mrp
         if self.price > self.mrp:
             raise ValueError('Price must be less than or equal to MRP')
         return self
@@ -82,18 +80,15 @@ async def upload_products(file: UploadFile = File(...), db=Depends(get_db)):
             status_code=400, detail="Invalid file type. Please upload a CSV file."
         )
 
-    # if file.content_type != 'text/csv':
-    #     raise HTTPException(
-    #         status_code=400, detail="Invalid file type. Please upload a CSV file content."
-    #     )
     file_content = await file.read()
     summary = parse_and_store_csv(file_content, db)
     return summary
 
 
 @app.get("/products", response_model=list[ProductBase])
-def get_products(db=Depends(get_db)):
-    products = db.query(Product).all()
+def get_products(db=Depends(get_db), page: int = Query(1, ge=1), limit: int = Query(10, ge=1, le=100)):
+    offset = (page-1)*limit
+    products = db.query(Product).offset(offset).limit(limit).all()
     return products
 
 
@@ -105,8 +100,8 @@ class ProductFilter(BaseModel):
 
 
 @app.get("/products/search", response_model=list[ProductBase])
-def search_products(filter_query: Annotated[ProductFilter, Depends()], db=Depends(get_db)):
-    products = get_searched_products(filter_query, db)
+def search_products(filter_query: Annotated[ProductFilter, Depends()], db=Depends(get_db), page: int = Query(1, ge=1), limit: int = Query(10, ge=1, le=100)):
+    products = get_searched_products(filter_query, db, page, limit)
     return products
 
 
@@ -124,10 +119,9 @@ def parse_and_store_csv(file_content: bytes, db: Session) -> dict:
     existing_skus = {sku for (sku,) in db.query(
         Product.sku).filter(Product.sku.in_(csv_skus)).all()}
 
-    # Start from 2 to account for header
+    # Validation
     for row_num, row_data in enumerate(csv_rows, start=2):
         try:
-            # Pydantic validates the data
             product_data = ProductBase(**row_data)
             if (product_data.sku in existing_skus):
                 failed_rows.append({
@@ -135,7 +129,6 @@ def parse_and_store_csv(file_content: bytes, db: Session) -> dict:
                     "error": f"Duplicate SKU {product_data.sku} already exists."
                 })
                 continue
-            # Convert to SQLAlchemy model
             db_product = Product(**product_data.model_dump())
             valid_products_to_add.append(db_product)
         except ValidationError as e:
@@ -146,7 +139,7 @@ def parse_and_store_csv(file_content: bytes, db: Session) -> dict:
         except Exception as e:
             failed_rows.append({"row": row_num, "error": str(e)})
 
-    # IMPROVED: Robust transaction handling
+    # Storing in database
     stored_count = 0
     if valid_products_to_add:
         try:
@@ -169,8 +162,9 @@ def parse_and_store_csv(file_content: bytes, db: Session) -> dict:
     return {"stored": stored_count, "failed": failed_rows}
 
 
-def get_searched_products(filter_query: ProductFilter, db):
+def get_searched_products(filter_query: ProductFilter, db, page, limit):
     query = db.query(Product)
+    offset = (page-1)*limit
     if filter_query.brand:
         query = query.filter(Product.brand.ilike(f"%{filter_query.brand}%"))
     if filter_query.color:
@@ -179,4 +173,4 @@ def get_searched_products(filter_query: ProductFilter, db):
         query = query.filter(Product.price >= filter_query.min_price)
     if filter_query.max_price is not None:
         query = query.filter(Product.price <= filter_query.max_price)
-    return query.all()
+    return query.offset(offset).limit(limit).all()
