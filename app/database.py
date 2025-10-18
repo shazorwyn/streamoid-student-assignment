@@ -9,7 +9,12 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 
-Base.metadata.create_all(bind=engine)
+def init_db():
+    from .models import Product
+    Base.metadata.create_all(bind=engine)
+
+
+init_db()
 
 
 def get_db():
