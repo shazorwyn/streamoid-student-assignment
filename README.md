@@ -157,6 +157,31 @@ curl "http://127.0.0.1:8000/products/search?brand=StreamThreads&min_price=500"
 curl -X DELETE "http://127.0.0.1:8000/products/clear?confirm=true"
 ```
 
+## Docker Setup
+To run the Streamoid backend using Docker to avoid installing dependencies manually.
+#### 1. Build Docker Image
+From the root of the repository:
+```
+docker build -t streamoid-backend .
+```
+#### 2. Run Docker Container
+Run the container and map port 8000:
+```
+docker run -d -p 8000:8000 --name streamoid streamoid-backend
+```
+The API will now be accessible at: ```http://127.0.0.1:8000```
+Swagger UI: ```http://127.0.0.1:8000/docs```
+Redoc: ```http://127.0.0.1:8000/redoc```
+
+#### 3. Stopping & Removing Container
+Stop the container:
+```
+docker stop streamoid
+```
+Remove the container:
+```
+docker rm streamoid
+```
 ## Notes
 
 - CSV file must have headers: ```sku,name,brand,color,size,mrp,price,quantity```.
